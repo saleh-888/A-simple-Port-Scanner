@@ -1,30 +1,36 @@
 #!/usr/bin/python
-import socket 
+import socket
 
-def welcome():
+def welcom():
     print('''
-    HI And Welcome To My Scanning Tool 
-    I Hope YOU ENJOY:)
-   
-   insta:darsek_
-    ''')
+    Welcome To My Tool
+    I hope you get even a little use out of it
+    ENJOY:)
     
-welcome()
-parameter = str(input("Press C to Continue Press E to Exit: "))
-if (parameter == "C"):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    insta:darsek_
+    github:saleh-888
+    ''')
+welcom()
 
-    host = input("Enter The IP Adress: ")
-    port = int(input("Enter The PORT Number: "))
+start = str(input("[*] Print <C> To Continue <E> To Exit: "))
 
-    def portscanner(port):
-        if sock.connect_ex((host,port)):
-            print("Port ",port," is closed")
+if (start == "C"):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket.setdefaulttimeout(3)
 
-        else:
-            print("Port ",port," is opend!")
+        host = input('[*] Enter The Host: ')
+        port = int(input('[*] Enter The Port: '))
 
-    portscanner(port)
+        def portscanner(port):
+            if sock.connect_ex((host,port)):
+                print('Port ',port,' is closed')
 
-elif(parameter == "E"):
-    print("I hope yOu EnJoY:)")
+            else:
+                print('Port ',port,' is open!')
+
+        portscanner(port)
+elif(start == "E"):
+    print("THANK YOU FOR USING MY TooL:)")
+
+else: 
+    print('Just type the letters')
